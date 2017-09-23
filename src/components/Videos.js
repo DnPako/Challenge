@@ -2,6 +2,7 @@ import React from 'react';
 import Video from './Video';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import _ from 'lodash';
 
 
 class Videos extends React.Component {
@@ -12,9 +13,9 @@ class Videos extends React.Component {
 
     render() {
         const { data, page } = this.props;
-        if(data === undefined){
+        if(data === undefined || _.isEmpty(data)){
             return (
-                <div>Loading...</div>
+                <div>Ouuups <strong>No available videos for the moment !!!</strong></div>
             );
         }
         return (

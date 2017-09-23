@@ -7,7 +7,7 @@ html body {
     box-sizing: border-box;
     min-height: 100vh;
     font-size: 10pt;
-    /*font-family: Futura, "Trebuchet MS", Arial, sans-serif*/
+    margin: 2em;
 }
 
 /*Comment, Likes and vues*/
@@ -24,4 +24,41 @@ html body {
 .meta a img{
     width:  1em;
     height: 1em;
+}
+
+/*Overriding Card header*/
+.ui.card>.content>.header.profile{
+    display: flex;
+}
+
+.space{
+    margin-right: 0.5em;
+
+}
+
+/*Description display and hide*/
+.details > :first-child{
+    max-height: 15vh;
+    overflow: hidden;
+    -webkit-transition: ease all .5s;
+            transition: ease all .5s;
+}
+
+
+
+.display-bar{
+    background: linear-gradient(hsla(0, 0%, 98%, 0.3),hsla(0, 0%, 100%, 0.69),hsla(0, 0%, 100%, 0.39));
+    top: 21vh;
+    padding-top: 60px;
+    position: absolute;
+    width: 100%;
+    display: block;
+}
+
+.display-bar.hide-bar{
+    display: none;
+}
+
+.ui.card>.content>.description.details:hover > :first-child{
+    max-height: 100vh;
 }

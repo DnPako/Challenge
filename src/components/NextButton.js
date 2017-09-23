@@ -6,6 +6,7 @@ import { Button } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 
 class NextButton extends React.Component {
+    // Display next page of videos
     handleClick(){
         const {data, page} = this.props;
         this.props.nextData(data, page);

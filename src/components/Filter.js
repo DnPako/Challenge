@@ -9,6 +9,7 @@ import 'semantic-ui-css/semantic.min.css';
 class Filter extends React.Component {
     constructor() {
         super();
+        // Elements of the filter
         this.state = {
             search: '',
             checked: false,
@@ -16,20 +17,22 @@ class Filter extends React.Component {
         };
     }
 
+    // handle changes in filter's form
     handleChange(e, value, name){
         // CASE: changing Checkbox
         if(value === undefined){
+            // Div changed on checking
             const classes = [...e.target.parentNode.classList];
             const checked = classes.findIndex(classe => classe === 'checked');
             if(checked === -1){
                 this.setState({ checked: true },  () => {
-                    // Filter data
+                    // Filter data as a callback
                     this.props.filterData({...this.state});
                 });
             }
             else{
                 this.setState({ checked: false }, () => {
-                    // Filter data
+                    // Filter data as a callback
                     this.props.filterData({...this.state});
                 });
             }
@@ -37,12 +40,13 @@ class Filter extends React.Component {
         }
         // CASE: Simple search or selecting results from dropdown
         this.setState({ [name]: value }, () => {
-            // Filter data
+            // Filter data as a callback
             this.props.filterData({...this.state});
         });
     }
 
     render() {
+        // Options for the Dropdown
         const options = [
             { key: 1, text: '10', value: 10 },
             { key: 2, text: '25', value: 25 },
@@ -54,14 +58,17 @@ class Filter extends React.Component {
                     <Form>
                         <Form.Field>
                             <Form.Input fluid icon='search' name='search' placeholder='Search...' onChange={(e, {value, name}) => this.handleChange(e, value, name)}/>
-                        </Form.Field>
+                        </Form.Field>{/*Search input*/}
+
                         <Form.Field>
                             <Form.Checkbox toggle onChange={(e) => this.handleChange(e)}/>
-                        </Form.Field>
+                        </Form.Field>{/*Checkbox*/}
+
                         <Form.Field>
                             <Form.Select fluid text='Results' name='results' options={options} simple item onChange={(e, {value, name}) => this.handleChange(e, value, name)}/>
-                        </Form.Field>
-                        <NextButton/>
+                        </Form.Field>{/*Nbr of results to display*/}
+
+                        <NextButton/>{/*Next page*/}
                     </Form>
                 </Card.Content>
             </Card>
