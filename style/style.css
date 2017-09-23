@@ -1,0 +1,27 @@
+:root {
+    --bg-color: #e6ecf0;
+}
+
+html body {
+    background: var(--bg-color);
+    box-sizing: border-box;
+    min-height: 100vh;
+    font-size: 10pt;
+    /*font-family: Futura, "Trebuchet MS", Arial, sans-serif*/
+}
+
+/*Comment, Likes and vues*/
+.meta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.meta a {
+    flex:1;
+}
+
+.meta a img{
+    width:  1em;
+    height: 1em;
+}
