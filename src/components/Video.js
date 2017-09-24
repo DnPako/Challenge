@@ -5,15 +5,16 @@ import 'semantic-ui-css/semantic.min.css';
 
 class Video extends React.Component {
     // Hide or show bar for additional description
-    hideBar(){
+    handleShowBar(e){
         const bar = document.querySelector(`#bar${this.props.video.uri.split("/")[2]}`);
-        bar.classList.add('hide-bar');
-    }
-    displayBar(){
-        const bar = document.querySelector(`#bar${this.props.video.uri.split("/")[2]}`);
-        setTimeout(function() {
-            bar.classList.remove('hide-bar');
-        }, 500);
+        if(e.type === 'mouseover'){
+            bar.classList.add('hide-bar');
+
+        }else if(e.type === 'mouseleave'){
+            setTimeout(function() {
+                bar.classList.remove('hide-bar');
+            }, 500);
+        }
     }
 
     render() {
@@ -36,7 +37,7 @@ class Video extends React.Component {
                             </div>
                     </Card.Header>{/*User*/}
 
-                    <Card.Description className="details" onMouseOver={() => this.hideBar()} onMouseLeave={() => this.displayBar()}>
+                    <Card.Description className="details" onMouseOver={(e) => this.handleShowBar(e)} onMouseLeave={(e) => this.handleShowBar(e)}>
                         <div>
                             {video.description!==null ? video.description : 'No description available'}
                         </div>
