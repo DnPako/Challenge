@@ -1,4 +1,4 @@
-# Frontend Challenge
+# Frontend Challenge by MASTOUR Mouad
 
 Display the results of a feed into a page, and provide a basic form to filter those results.
 The main technologies used in this coding challenge are:
